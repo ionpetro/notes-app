@@ -1,0 +1,122 @@
+@import '../../main-styles.scss';
+
+.note-card-container {
+  position: relative;
+  background-color: white;
+  border-radius: 5px;
+
+  box-shadow: 0px 2px 15px 2px rgba(black, 0.068);
+
+  &:hover {
+
+    box-shadow: 0px 0px 0px 4px rgba(black, 0.068);
+    transition: box-shadow 0.2s ease-out;
+
+    .edit, .trash {
+      transition-delay: 0.35s;
+      opacity: 1;
+      transform: scale(1);
+    }
+
+  }
+
+  .note-card-content {
+    padding: 25px;
+
+    .note-card-title {
+      font-size: 22px;
+      font-weight: bold;
+      color: $purple;
+    }
+
+    .note-card-body {
+      position: relative;
+
+      color: #555;
+      // max height before truncation
+      max-height: 80px;
+      overflow: hidden;
+
+      .fade-out-truncation {
+        position: absolute;
+        pointer-events: none;
+        bottom: 0;
+        height: 50%;
+        width: 100%;
+        background: linear-gradient(to bottom, rgba(white, 0) 0%, rgba(white, 0.8) 50%, rgba(white, 1) 100%);
+      }
+    }
+  }
+
+}
+
+.edit {
+
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+
+  position: absolute;
+  height: 34px;
+  width: 34px;
+  top: 12px;
+  right: 12px + 34px + 5px;
+  background-color: $light;
+  border-radius: 4px;
+  transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+
+  &:hover {
+    background-color: darken($light, 3%);
+  }
+
+  &:active {
+    background-color: darken($light, 5%);
+  }
+
+  // it's hidden by default
+  opacity: 0;
+
+  transform: scale(0.35);
+
+  i {
+    color: gray;
+  }
+
+}
+
+.trash {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+  position: absolute;
+  height: 34px;
+  width: 34px;
+  top: 12px;
+  right: 12px;
+  background-color: $light-red;
+  border-radius: 4px;
+
+  transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+  transform: scale(0.35);
+
+
+  // it's hidden by default
+  opacity: 0;
+
+  &:hover {
+    background-color: darken($light-red, 3%);
+  }
+
+  &:active {
+    background-color: darken($light-red, 5%);
+  }
+
+  i {
+    color: rgb(255, 90, 90);
+  }
+
+}
