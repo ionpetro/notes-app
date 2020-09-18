@@ -145,6 +145,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "notes-app"
+    }
+  },
+  "defaultProject": "notes-app",
+  "cli": {
+    "analytics": false
+  }
 }
