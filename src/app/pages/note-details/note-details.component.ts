@@ -28,8 +28,7 @@ export class NoteDetailsComponent implements OnInit {
     // or editing an existing one
     this.route.params.subscribe((params: Params) => {
       this.note = new Note();
-      console.log(params)
-      if (params.id !== "newNote") {
+      if (params.id) {
         this.note = this.notesService.get(params.id);
         this.noteId = params.id;
         this.new = false;
@@ -46,10 +45,10 @@ export class NoteDetailsComponent implements OnInit {
       // save the note
 
         this.notesService.add(form.value);
-        this.router.navigateByUrl('/');
-    } else {
-      this.notesService.update(this.noteId, form.value.title, form.value.body);
-    }
+      } else {
+        this.notesService.update(this.noteId, form.value.title, form.value.body);
+      }
+      this.router.navigateByUrl('/');
   }
 
   cancel() {

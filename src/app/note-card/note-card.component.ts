@@ -1,4 +1,5 @@
-import { Component, ElementRef, Input, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, Output, OnInit, Renderer2, ViewChild, EventEmitter } from '@angular/core';
+import { NotesService } from '../shared/notes.service';
 
 @Component({
   selector: 'app-note-card',
@@ -9,11 +10,16 @@ export class NoteCardComponent implements OnInit {
 
   @Input() title: string;
   @Input() body: string;
+  @Input() link: string;
 
   @ViewChild('truncator', { static:true}) truncator: ElementRef<HTMLElement>;
   @ViewChild('bodyText',  { static:true}) bodyText: ElementRef<HTMLElement>;
 
-  constructor(private renderer: Renderer2) { }
+  @Output('delete') deleteEvent: EventEmitter<void> = new EventEmitter<void>();
+
+  constructor(
+    private renderer: Renderer2,
+  ) { }
 
   ngOnInit(): void {
 
@@ -25,6 +31,10 @@ export class NoteCardComponent implements OnInit {
       // else (there is no text overflow), hide the fade out truncator
       this.renderer.setStyle(this.truncator.nativeElement, 'display', 'none');
     }
+  }
+
+  onButtonClick() {
+    this.deleteEvent.emit();
   }
 
 
