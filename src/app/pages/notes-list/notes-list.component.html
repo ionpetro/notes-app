@@ -9,11 +9,11 @@
         </span>
       </p>
     </div>
+    <button routerLink="new" class="field button floating-add-button is-primary">+ Add</button>
+
   </div>
 
-  <div *ngIf="filteredNotes.length === 0">No results</div>
-
-
+  <div class="no-results" *ngIf="filteredNotes.length === 0">No results</div>
 
   <div cdkDropList (cdkDropListDropped)="drop($event)" class="notes-list" [@listAnim]>
     <app-note-card
@@ -29,5 +29,4 @@
   </div>
 
 
-  <button routerLink="new" class="button floating-add-button is-primary">+ Add</button>
 </div>

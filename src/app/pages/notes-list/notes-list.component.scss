@@ -21,10 +21,12 @@ app-note-card {
 
 .floating-add-button {
   position: fixed;
-  bottom: 0;
-  width: 500px;
+  top: 10px;
+  right: 10px;
+  width: 200px;
+  height: 50px !important;
   border-radius: 0;
-  box-shadow: 0px 0px 15px 5px rgba($purple, 0.2);
+  box-shadow: 0px 0px 15px 5px rgba($dark, 0.2);
 
   height: 68px;
   font-size: 24px;
@@ -48,4 +50,9 @@ app-note-card {
 
 .notes-list.cdk-drop-list-dragging .note-card:not(.cdk-drag-placeholder) {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.no-results {
+  margin: 30px auto;
+  color: $beige-light;
 }
