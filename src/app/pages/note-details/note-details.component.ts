@@ -1,7 +1,7 @@
 import { Route } from '@angular/compiler/src/core';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Note } from 'src/app/shared/note.model';
 import { NotesService } from 'src/app/shared/notes.service';
 
@@ -13,19 +13,43 @@ import { NotesService } from 'src/app/shared/notes.service';
 export class NoteDetailsComponent implements OnInit {
 
   note: Note;
+  noteId: number;
+  new: boolean;
 
   constructor(
     private notesService: NotesService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit() {
-    this.note = new Note();
+
+    // we want to find out if we create new note
+    // or editing an existing one
+    this.route.params.subscribe((params: Params) => {
+      this.note = new Note();
+      console.log(params)
+      if (params.id !== "newNote") {
+        this.note = this.notesService.get(params.id);
+        this.noteId = params.id;
+        this.new = false;
+      } else {
+        this.new = true;
+      }
+    })
+
+
   }
 
   onSubmit(form: NgForm) {
-    this.notesService.add(form.value);
-    this.router.navigateByUrl('/');
+    if(this.new) {
+      // save the note
+
+        this.notesService.add(form.value);
+        this.router.navigateByUrl('/');
+    } else {
+      this.notesService.update(this.noteId, form.value.title, form.value.body);
+    }
   }
 
   cancel() {
