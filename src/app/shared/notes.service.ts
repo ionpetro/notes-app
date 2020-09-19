@@ -23,8 +23,10 @@ export class NotesService {
   }
 
   add(note: Note) {
-    // this method will add a note to the notes
-    // array and return the id of the note
+  /**
+   * this method will add a note to the notes
+   * array and return the id of the note
+  */
     let newLength = this.notes.push(note);
     let index = newLength - 1;
     return index;
