@@ -13,13 +13,17 @@
 
   <div *ngIf="filteredNotes.length === 0">No results</div>
 
-  <div class="notes-list" [@listAnim]>
+
+
+  <div cdkDropList (cdkDropListDropped)="drop($event)" class="notes-list" [@listAnim]>
     <app-note-card
       *ngFor="let note of filteredNotes"
       [link]="generateNoteURL(note)"
       @itemAnim
+      cdkDrag
       (delete)="deleteNote(note)"
       [title]="note.title"
+      class="note-card"
       [body]="note.body">
     </app-note-card>
   </div>

@@ -2,6 +2,7 @@ import { animate, query, stagger, style, transition, trigger } from '@angular/an
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { Note } from 'src/app/shared/note.model';
 import { NotesService } from 'src/app/shared/notes.service';
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-notes-list',
@@ -102,6 +103,10 @@ export class NotesListComponent implements OnInit {
     let noteId = this.notesService.getId(note);
     this.notesService.delete(noteId);
     this.filter(this.filterInputElementRef.nativeElement.value);
+  }
+
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.notes, event.previousIndex, event.currentIndex);
   }
 
   generateNoteURL(note: Note) {
