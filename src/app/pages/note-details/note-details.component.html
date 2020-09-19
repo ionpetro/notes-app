@@ -6,6 +6,7 @@
       <label class="label">Title: </label>
       <div class="control">
         <input name="title" [ngModel]="note.title" type="text" required class="input">
+
       </div>
     </div>
 
@@ -20,7 +21,7 @@
 
     <div class="field is-grouped is-pulled-right">
       <div class="control">
-        <button class="button is-text" type="button">Cancel</button>
+        <button (click)="cancel()" class="button is-text" type="button">Cancel</button>
         <button [disabled]="!noteForm.valid" class="button is-success" type="submit" style="color: black;">Save</button>
       </div>
     </div>

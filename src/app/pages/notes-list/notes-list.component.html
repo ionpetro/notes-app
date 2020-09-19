@@ -12,10 +12,9 @@
   </div>
 
   <div class="notes-list">
-    <app-note-card title="cardTitle" body="Testing 123"></app-note-card>
-    <app-note-card></app-note-card>
-    <app-note-card></app-note-card>
-    <app-note-card></app-note-card>
+    <app-note-card *ngFor="let note of notes" [title]="note.title" [body]="note.body"></app-note-card>
   </div>
 
+
+  <button routerLink="newNote" class="button floating-add-button is-primary">+ Add</button>
 </div>
