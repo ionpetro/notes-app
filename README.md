@@ -2,7 +2,7 @@
 
 This is a simple Angular Project implemented following the [Devstackr's](https://www.youtube.com/watch?v=dlXEeOk-MrI) awesome YouTube tutorial 🎉.
 
-![Screen Shot]('./src/assets/ss.png')
+![Screen Shot](https://github.com/ionpetro/notes-app/blob/master/src/assets/ss.png?raw=true)
 
 ## Already implemented app features
 
