@@ -1,5 +1,4 @@
 import { Component, ElementRef, Input, Output, Renderer2, ViewChild, EventEmitter, AfterViewInit } from '@angular/core';
-import { runInThisContext } from 'vm';
 import { NotesService } from '../shared/notes.service';
 
 @Component({
@@ -32,7 +31,7 @@ export class NoteCardComponent implements AfterViewInit {
   ngAfterViewInit(): void {
 
     this.contentHeight = this.bodyText.nativeElement.scrollHeight;
-    console.log(this.contentHeight) //TODO: fix bug
+
     // work out if there is a text overflow and if not, then hide the trucator
     if (this.contentHeight > 81) {
       // if there is a text overflow, show the fade out truncator

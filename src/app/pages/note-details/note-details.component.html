@@ -5,24 +5,45 @@
     <div class="field">
       <label class="label">Title: </label>
       <div class="control">
-        <input placeholder="Cooking Recipe" name="title" [ngModel]="note.title" type="text" required class="input">
-
+        <input placeholder="Cooking Recipe"
+               #title="ngModel"
+               name="title"
+               [ngModel]="note.title"
+               type="text"
+               required
+               class="input">
       </div>
     </div>
+
+    <div *ngIf="title.invalid && (title.dirty || title.touched)">
+      <div class="required-name" *ngIf="title.errors.required">
+        *title is required.
+      </div>
+    </div>
+
 
     <br>
 
     <div class="field">
       <label class="label">Body: </label>
       <div class="control">
-        <textarea placeholder="Milk&#10;Sugar&#10;Flour&#10;Cook for 45 mins" name="body" [ngModel]="note.body" class="textarea"></textarea>
+        <textarea placeholder="Milk&#10;Sugar&#10;Flour&#10;Cook for 45 mins"
+                  name="body"
+                  [ngModel]="note.body"
+                  class="textarea">
+        </textarea>
       </div>
     </div>
 
     <div class="field is-grouped is-pulled-right">
       <div class="control">
         <button (click)="cancel()" class="button is-text" type="button">Cancel</button>
-        <button [disabled]="!noteForm.valid" class="button is-success" type="submit" style="color: black;">Save</button>
+        <button [disabled]="!noteForm.valid"
+                class="button is-success"
+                type="submit"
+                style="color: black;">
+              Save
+        </button>
       </div>
     </div>
 
