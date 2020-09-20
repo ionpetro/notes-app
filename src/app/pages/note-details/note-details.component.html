@@ -21,6 +21,22 @@
       </div>
     </div>
 
+    <br>
+
+    <div class="field">
+      <label class="label">Label: </label>
+      <div class="control">
+        <div class="select" name="label" >
+          <select name="label" [ngModel]="note.label" required>
+            <option [value]="undefined" disabled selected>Select Label</option>
+            <option style="color: hsl(204, 86%, 53%)" [value]="'blue'" selected><span class="blue">Blue</span></option>
+            <option style="color: hsl(348, 100%, 61%)" [value]="'red'">Red</option>
+            <option style="color: hsl(48, 100%, 67%)" [value]="'yellow'">Yellow</option>
+            <option style="color: hsl(141, 53%, 53%)" [value]="'green'">Green</option>
+          </select>
+        </div>
+      </div>
+    </div>
 
     <br>
 

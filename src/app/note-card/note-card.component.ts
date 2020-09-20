@@ -10,6 +10,7 @@ export class NoteCardComponent implements AfterViewInit {
 
   @Input() title: string;
   @Input() body: string;
+  @Input() label: string;
   @Input() link: string;
 
   @ViewChild('truncator', { static:true}) truncator: ElementRef<HTMLElement>;

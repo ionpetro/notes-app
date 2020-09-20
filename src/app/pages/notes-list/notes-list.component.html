@@ -22,8 +22,10 @@
       cdkDrag
       (delete)="deleteNote(note)"
       [title]="note.title"
+      [body]="note.body"
+      [label]="note.label"
       class="note-card"
-      [body]="note.body">
+      >
     </app-note-card>
   </div>
 

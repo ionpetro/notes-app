@@ -5,6 +5,15 @@
     <h1 class="note-card-title">
       {{ title }}
     </h1>
+    <div class="note-card-label">
+      <div [ngClass]="{
+                      'blue':label === 'blue',
+                      'red': label === 'red',
+                      'yellow': label === 'yellow',
+                      'green': label === 'green'
+                      }">
+      </div>
+    </div>
     <div #bodyText class="note-card-body">
       <p >{{ body }}</p>
       <div #truncator class="fade-out-truncation">

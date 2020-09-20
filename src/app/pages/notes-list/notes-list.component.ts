@@ -88,6 +88,7 @@ export class NotesListComponent implements OnInit {
   notes: Note[] = new Array<Note>();
   filteredNotes: Note[] = new Array<Note>();
 
+
   @ViewChild('filterInput') filterInputElementRef: ElementRef<HTMLInputElement>;
 
   constructor(private notesService: NotesService) { }
@@ -96,6 +97,7 @@ export class NotesListComponent implements OnInit {
     // we want to retrieve all notes from NotesService
     this.notes = this.notesService.getAll();
     this.filteredNotes = this.notesService.getAll();
+    console.log(this.notes);
     // this.filter('');
   }
 

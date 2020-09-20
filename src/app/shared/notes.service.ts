@@ -33,10 +33,11 @@ export class NotesService {
 
   }
 
-  update(id: number, title: string, body: string){
+  update(id: number, title: string, body: string, label: string){
     let note = this.notes[id];
     note.title = title;
     note.body = body;
+    note.label = label;
   }
 
   delete(id: number) {
