@@ -18,6 +18,7 @@ This is a simple Angular Project implemented following the [Devstackr's](https:/
 - [x] Customized CSS and changed Layout
 - [x] Add edit button on card
 - [x] Drag and Drop cards using [Material Angular](https://material.angular.io/)
+- [x] Add labels to cards
 - [ ] Add dialog for card editing instead of new page (? will-try)
-- [ ] Deployment
 - [x] Fix turnicator bug
+- [ ] Deployment
