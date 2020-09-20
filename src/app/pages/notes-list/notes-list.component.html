@@ -14,7 +14,6 @@
   </div>
 
   <div class="no-results" *ngIf="filteredNotes.length === 0">No results</div>
-
   <div cdkDropList (cdkDropListDropped)="drop($event)" class="notes-list" [@listAnim]>
     <app-note-card
       *ngFor="let note of filteredNotes"

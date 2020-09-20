@@ -18,3 +18,4 @@ This is a simple Angular Project implemented following the [Devstackr's](https:/
 - [x] Drag and Drop cards using [Material Angular](https://material.angular.io/)
 - [ ] Add dialog for card editing instead of new page (? will-try)
 - [ ] Deployment
+- [x] Fix turnicator bug
