@@ -19,6 +19,9 @@ This is a simple Angular Project implemented following the [Devstackr's](https:/
 - [x] Add edit button on card
 - [x] Drag and Drop cards using [Material Angular](https://material.angular.io/)
 - [x] Add labels to cards
-- [ ] Add dialog for card editing instead of new page (? will-try)
 - [x] Fix turnicator bug
-- [ ] Deployment
+- [x] Deployment
+- [ ] Add dialog for card editing instead of new page (? will-try)
+- [ ] Grid and List display
+- [ ] Save items to localStorage (not to lose on refresh)
+- [ ] Change dropdown preview 
