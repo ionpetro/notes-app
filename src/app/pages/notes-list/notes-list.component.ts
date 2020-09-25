@@ -1,5 +1,5 @@
 import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnChanges, OnInit, ViewChild } from '@angular/core';
 import { Note } from 'src/app/shared/note.model';
 import { NotesService } from 'src/app/shared/notes.service';
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
@@ -43,7 +43,7 @@ import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop';
         animate(50, style({
           transform: 'scale(1.05)'
         })),
-        //then scale down back to normal size while beggining to fade out
+        //then scale down back to normal size while beginning to fade out
         animate(50, style({
           transform: 'scale(1)',
           opacity: 0.75,
@@ -96,19 +96,21 @@ export class NotesListComponent implements OnInit {
   ngOnInit(): void {
     // we want to retrieve all notes from NotesService
     this.notes = this.notesService.getAll();
+
     this.filteredNotes = this.notesService.getAll();
-    console.log(this.notes);
-    // this.filter('');
+
   }
 
   deleteNote(note: Note) {
     let noteId = this.notesService.getId(note);
     this.notesService.delete(noteId);
-    this.filter(this.filterInputElementRef.nativeElement.value);
+    // this.filter(this.filterInputElementRef.nativeElement.value);
+    this.notes = this.filteredNotes = this.notesService.getAll();
+
   }
 
   drop(event: CdkDragDrop<string[]>) {
-    moveItemInArray(this.notes, event.previousIndex, event.currentIndex);
+    moveItemInArray(this.filteredNotes, event.previousIndex, event.currentIndex);
   }
 
   generateNoteURL(note: Note) {
@@ -117,10 +119,11 @@ export class NotesListComponent implements OnInit {
   }
 
   filter(query: string) {
+
     query = query.toLowerCase().trim();
 
     let allResults: Note[] = new Array<Note>();
-    // split up the seach query into individual words
+    // split up the search query into individual words
     let terms: string[] = query.split(' ');
     // remove duplicates search terms
     terms = this.removeDuplicates(terms);
@@ -136,6 +139,7 @@ export class NotesListComponent implements OnInit {
     // but we don't want to show the same note multiple times on the UI
     // so we first must remove the duplicates
     let uniqueResults = this.removeDuplicates(allResults);
+
     this.filteredNotes = uniqueResults;
 
     // sort by relevancy
