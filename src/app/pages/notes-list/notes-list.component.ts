@@ -87,7 +87,7 @@ export class NotesListComponent implements OnInit {
 
   notes: Note[] = new Array<Note>();
   filteredNotes: Note[] = new Array<Note>();
-
+  display: string = 'list';
 
   @ViewChild('filterInput') filterInputElementRef: ElementRef<HTMLInputElement>;
 
@@ -99,6 +99,10 @@ export class NotesListComponent implements OnInit {
 
     this.filteredNotes = this.notesService.getAll();
 
+  }
+
+  changeDisplay(chosenDisplay: string) {
+    this.display = chosenDisplay;
   }
 
   deleteNote(note: Note) {

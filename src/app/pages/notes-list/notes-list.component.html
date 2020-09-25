@@ -10,24 +10,29 @@
       </p>
     </div>
     <button routerLink="new" class="field button floating-add-button is-primary">+ Add</button>
-
   </div>
 
-  <div class="no-results" *ngIf="filteredNotes.length === 0">No results</div>
-  <div cdkDropList (cdkDropListDropped)="drop($event)" class="notes-list" [@listAnim]>
-    <app-note-card
-      *ngFor="let note of filteredNotes"
-      [link]="generateNoteURL(note)"
-      @itemAnim
-      cdkDrag
-      (delete)="deleteNote(note)"
-      [title]="note.title"
-      [body]="note.body"
-      [label]="note.label"
-      class="note-card"
-      >
-    </app-note-card>
+  <div class="display-toggle">
+
+    <div [ngClass]="display==='list'?'active':''">
+      <span (click)="changeDisplay('list')"><i class="fas fa-list"></i> List</span>
+    </div>
+
+  <div [ngClass]="display==='list'?'':'active'">
+    <span (click)="changeDisplay('grid')"><i class="fas fa-th"></i> Grid</span>
   </div>
+
+</div>
+
+<div class="no-results" *ngIf="filteredNotes.length === 0">No results</div>
+
+<div cdkDropList (cdkDropListDropped)="drop($event)" [ngClass]="display==='list'?'list-notes':'grid-notes'" [@listAnim]>
+  <app-note-card *ngFor="let note of filteredNotes" [link]="generateNoteURL(note)" @itemAnim cdkDrag
+    (delete)="deleteNote(note)" [title]="note.title" [body]="note.body" [label]="note.label"
+    [ngClass]="display==='list'?'note-card-list':'note-card-grid'">
+  </app-note-card>
+
+</div>
 
 
 </div>

@@ -4,7 +4,7 @@ This is a simple Angular Project implemented following the [Devstackr's](https:/
 
 ![Screen Shot](https://github.com/ionpetro/notes-app/blob/master/src/assets/ss.png?raw=true)
 
-## Already implemented app features
+## Already implemented app features 🚀
 
 - [x] Implemented UI with custom scss and Bulma framework
 - [x] Router
@@ -22,6 +22,10 @@ This is a simple Angular Project implemented following the [Devstackr's](https:/
 - [x] Fix turnicator bug
 - [x] Deployment
 - [ ] Add dialog for card editing instead of new page (? will-try)
-- [ ] Grid and List display
+- [x] Grid and List display
 - [x] Save items to localStorage (not to lose on refresh)
 - [ ] Change dropdown preview 
+
+### Bugs to fix 🐛
+
+- [ ] When draging n droping, the index changes so the delete and update method should sync
