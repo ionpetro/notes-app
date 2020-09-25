@@ -9,7 +9,7 @@ import { NoteCardComponent } from './note-card/note-card.component';
 import { NoteDetailsComponent } from './pages/note-details/note-details.component';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { DragDropModule } from '@angular/cdk/drag-drop';;
-
+import { StorageServiceModule } from 'ngx-webstorage-service';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,8 @@ import { DragDropModule } from '@angular/cdk/drag-drop';;
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule,
-    DragDropModule
+    DragDropModule,
+    StorageServiceModule
   ],
   providers: [],
   bootstrap: [AppComponent]

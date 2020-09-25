@@ -1,5 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { Note } from './note.model';
+import { LOCAL_STORAGE, StorageService } from 'ngx-webstorage-service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ export class NotesService {
 
   notes: Note[] = new Array<Note>();
 
-  constructor() { }
+  constructor(@Inject(LOCAL_STORAGE) private storage: StorageService) { }
 
   get(id: number) {
     return this.notes[id];
@@ -19,7 +20,8 @@ export class NotesService {
   }
 
   getAll(): Note[] {
-    this.notes = JSON.parse(localStorage.getItem('notes'));
+    this.notes = this.storage.get('notes') || [];
+    // this.notes = JSON.parse(localStorage.getItem('notes'));
     return this.notes;
   }
 
@@ -29,7 +31,8 @@ export class NotesService {
    * array and return the id of the note
   */
     let newLength = this.notes.push(note);
-    localStorage.setItem('notes', JSON.stringify(this.notes));
+    this.storage.set('notes', this.notes);
+    // localStorage.setItem('notes', JSON.stringify(this.notes));
     let index = newLength - 1;
     return index;
 
@@ -40,14 +43,17 @@ export class NotesService {
     note.title = title;
     note.body = body;
     note.label = label;
-    localStorage.setItem('notes', JSON.stringify(this.notes));
+    this.storage.set('notes', this.notes);
+    // localStorage.setItem('notes', JSON.stringify(this.notes));
   }
 
   delete(id: number) {
     //delete item from local storage
-    let allNotes = JSON.parse(localStorage.getItem('notes'));
+    let allNotes = this.storage.get('notes');
+    // let allNotes = JSON.parse(localStorage.getItem('notes'));
     allNotes.splice(id, 1);
-    localStorage.setItem('notes', JSON.stringify(allNotes));
+    this.storage.set('notes', allNotes)
+    // localStorage.setItem('notes', JSON.stringify(allNotes));
     this.notes.splice(id, 1);
 
   }

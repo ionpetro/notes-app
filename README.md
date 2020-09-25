@@ -23,5 +23,5 @@ This is a simple Angular Project implemented following the [Devstackr's](https:/
 - [x] Deployment
 - [ ] Add dialog for card editing instead of new page (? will-try)
 - [ ] Grid and List display
-- [ ] Save items to localStorage (not to lose on refresh)
+- [x] Save items to localStorage (not to lose on refresh)
 - [ ] Change dropdown preview 
