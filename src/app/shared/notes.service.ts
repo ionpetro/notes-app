@@ -8,6 +8,7 @@ import { LOCAL_STORAGE, StorageService } from 'ngx-webstorage-service';
 export class NotesService {
 
   notes: Note[] = new Array<Note>();
+  display: string;
 
   constructor(@Inject(LOCAL_STORAGE) private storage: StorageService) { }
 
@@ -56,6 +57,15 @@ export class NotesService {
     // localStorage.setItem('notes', JSON.stringify(allNotes));
     this.notes.splice(id, 1);
 
+  }
+
+  getDisplay(): string {
+    this.display = this.storage.get('display');
+    return this.display;
+  }
+
+  setDisplay(view: string) {
+    this.storage.set('display', view);
   }
 
  }

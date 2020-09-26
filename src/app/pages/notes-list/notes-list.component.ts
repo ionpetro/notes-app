@@ -87,21 +87,25 @@ export class NotesListComponent implements OnInit {
 
   notes: Note[] = new Array<Note>();
   filteredNotes: Note[] = new Array<Note>();
-  display: string = 'list';
+  display: string;
+
 
   @ViewChild('filterInput') filterInputElementRef: ElementRef<HTMLInputElement>;
 
-  constructor(private notesService: NotesService) { }
+  constructor(private notesService: NotesService) {
+    this.display = this.notesService.getDisplay();
+   }
 
   ngOnInit(): void {
     // we want to retrieve all notes from NotesService
     this.notes = this.notesService.getAll();
 
     this.filteredNotes = this.notesService.getAll();
-
+    this.notesService.setDisplay(this.display);
   }
 
   changeDisplay(chosenDisplay: string) {
+    this.notesService.setDisplay(chosenDisplay);
     this.display = chosenDisplay;
   }
 
