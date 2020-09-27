@@ -24,10 +24,11 @@ This is a simple Angular Project implemented following the [Devstackr's](https:/
 - [ ] Add dialog for card editing instead of new page (? will-try)
 - [x] Grid and List display
 - [x] Save items to localStorage (not to lose on refresh)
-- [ ] Change dropdown preview 
+- [ ] Change dropdown preview
 
 ### Bugs to fix 🐛
 
 - [x] When navigating to /new page, the app should remember the last display the user chose 
 - [x] Center No results message
 - [ ] When draging n droping, the index changes so the delete and update method should sync
+- [ ] Show display options only when there are items to show
