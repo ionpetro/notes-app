@@ -13,7 +13,7 @@
     transition: box-shadow 0.2s ease-out;
 
     .edit, .trash {
-      transition-delay: 0.35s;
+      transition-delay: 0.15s;
       opacity: 1;
       transform: scale(1);
     }
@@ -123,7 +123,6 @@
 
 .trash {
   display: flex;
-
   justify-content: center;
   align-items: center;
 
@@ -133,7 +132,7 @@
   width: 34px;
   top: 12px;
   right: 12px;
-  background-color: $light-red;
+  background-color: $light;
   border-radius: 4px;
 
   transition: opacity 0.2s ease-out, transform 0.2s ease-out;
@@ -144,11 +143,11 @@
   opacity: 0;
 
   &:hover {
-    background-color: darken($light-red, 3%);
+    background-color: darken($light, 3%);
   }
 
   &:active {
-    background-color: darken($light-red, 5%);
+    background-color: darken($light, 5%);
   }
 
   i {

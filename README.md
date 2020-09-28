@@ -30,5 +30,5 @@ This is a simple Angular Project implemented following the [Devstackr's](https:/
 
 - [x] When navigating to /new page, the app should remember the last display the user chose 
 - [x] Center No results message
+- [x] Show display options only when there are items to show
 - [ ] When draging n droping, the index changes so the delete and update method should sync
-- [ ] Show display options only when there are items to show
