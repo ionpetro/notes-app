@@ -58,29 +58,26 @@
 
     .blue {
       padding: 5px 20px;
-      border-radius: 6px;
-      background-color:  hsl(204, 86%, 53%) ;
+      border-radius: 50px;
+      background-color:  $blue;
     }
 
     .red {
       padding: 5px 20px;
-      border-radius: 6px;
-      background-color:  hsl(348, 100%, 61%) ;
       border-radius: 50px;
+      background-color:  $red;
     }
 
     .yellow {
       padding: 5px 20px;
-      border-radius: 6px;
-      background-color:  hsl(48, 100%, 67%) ;
       border-radius: 50px;
+      background-color:  $yellow;
     }
 
     .green {
       padding: 5px 20px;
-      border-radius: 6px;
-      background-color:  hsl(141, 53%, 53%) ;
       border-radius: 50px;
+      background-color:  $green;
     }
   }
 

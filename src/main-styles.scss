@@ -6,20 +6,22 @@
 
 // Set your brand colors
 $dark: #000028;
-$pink: #FA7C91;
-$blue: #37c7f2;
 $beige-light: #D0D1CD;
 $beige-lighter: #EFF0EB;
 
+$blue:  hsl(204, 86%, 53%);
+$red:  hsl(348, 100%, 61%);
+$green:  hsl(141, 53%, 53%);
+$yellow :  hsl(48, 100%, 67%);
 
 $light-red: #fff3f3;
 $light: #f0f1f3;
-$green: #23D2AA;
+$light-green: #23D2AA;
 // Update Bulma's global variables
 $family-sans-serif: "Nunito", sans-serif;
 $grey-light: $beige-light;
 $primary: $dark;
-$link: $pink;
+$link: $light-green;
 
 // Update some of Bulma's component variables
 $body-background-color: $beige-lighter;

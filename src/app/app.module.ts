@@ -10,6 +10,8 @@ import { NoteDetailsComponent } from './pages/note-details/note-details.componen
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { DragDropModule } from '@angular/cdk/drag-drop';;
 import { StorageServiceModule } from 'ngx-webstorage-service';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { StorageServiceModule } from 'ngx-webstorage-service';
     FormsModule,
     BrowserAnimationsModule,
     DragDropModule,
-    StorageServiceModule
+    StorageServiceModule,
+    MatButtonToggleModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

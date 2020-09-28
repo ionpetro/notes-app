@@ -6,12 +6,7 @@
       {{ title }}
     </h1>
     <div class="note-card-label">
-      <div [ngClass]="{
-                      'blue':label === 'blue',
-                      'red': label === 'red',
-                      'yellow': label === 'yellow',
-                      'green': label === 'green'
-                      }">
+      <div [ngClass]="label">
       </div>
     </div>
     <div #bodyText class="note-card-body">

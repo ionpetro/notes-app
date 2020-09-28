@@ -1,4 +1,5 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+// import { MatDialogRef } from '@angular/material/dialog';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Note } from 'src/app/shared/note.model';
@@ -11,17 +12,22 @@ import { NotesService } from 'src/app/shared/notes.service';
 })
 export class NoteDetailsComponent implements OnInit {
 
+  labelOptions = ['blue', 'red', 'yellow', 'green'];
   note: Note;
   noteId: number;
   new: boolean;
+  public selectedVal: string;
 
   constructor(
     private notesService: NotesService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    // public dialogRef: MatDialogRef<NoteDetailsComponent>,
   ) { }
 
   ngOnInit() {
+
+    this.selectedVal = this.labelOptions[0];
 
     // we want to find out if we create new note
     // or editing an existing one
@@ -42,6 +48,7 @@ export class NoteDetailsComponent implements OnInit {
   onSubmit(form: NgForm) {
     if(this.new) {
       // save the note
+        console.log(form.value);
 
         this.notesService.add(form.value);
       } else {
