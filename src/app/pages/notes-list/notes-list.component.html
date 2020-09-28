@@ -12,7 +12,7 @@
     <button routerLink="new" class="field button floating-add-button is-primary">+ Add</button>
   </div>
 
-  <div class="display-toggle">
+  <div *ngIf="filteredNotes.length !== 0" class="display-toggle">
 
     <div [ngClass]="display==='list'?'active':''">
       <span (click)="changeDisplay('list')"><i class="fas fa-list"></i> List</span>
