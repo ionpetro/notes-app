@@ -21,10 +21,10 @@ This is a simple Angular Project implemented following the [Devstackr's](https:/
 - [x] Add labels to cards
 - [x] Fix turnicator bug
 - [x] Deployment
-- [ ] Add dialog for card editing instead of new page (? will-try)
 - [x] Grid and List display
 - [x] Save items to localStorage (not to lose on refresh)
 - [x] Change dropdown preview
+- [ ] Add dialog for card editing instead of new page
 
 ### Bugs to fix 🐛
 
